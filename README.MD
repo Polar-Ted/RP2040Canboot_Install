@@ -40,7 +40,7 @@ Steps to Flash SKR Pico RP2040 with Canboot.
 
 - When the /mnt unmounts remove the boot jumper. 
 
-- -Reboot and continue to the next phase.. Flashing Klipper
+- Reboot and continue to the next phase.. Flashing Klipper
 
 Links:
 
