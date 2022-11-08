@@ -1,6 +1,21 @@
 # Steps to Flash SKR Pico  ( RP2040 ) with Canboot over CAN bus.
 #### See below for [USB to can bridge](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-usb-to-can-bridge-mode), A version for CanBoot on USB will be written soon. 
   This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
+  
+## Install CanBoot if you haven't already
+- Run the following to copy the canboot github files
+```
+git clone https://github.com/Arksine/CanBoot
+```
+
+- Add Canboot to the moonraker update manager by adding the following lines to your moonraker.cof file.
+```
+[update_manager CanBoot]
+type: git_repo
+path: ~/CanBoot
+origin: https://github.com/Arksine/CanBoot.git
+is_system_service: False
+```
 
 ## Canboot for SKR Pico as a CAN device
 
