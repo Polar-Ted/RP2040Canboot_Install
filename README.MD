@@ -18,7 +18,7 @@
   -   ```make menuconfig```
 
 - Settings
-    - MCU Rasburry Pi RP2040
+    - MCU Raspberry Pi RP2040
     - Build CanBoot deployment 16Kib Bootloader
     - Com interface CAN bus
     - CAN RX GPIO 1
@@ -58,7 +58,7 @@
   -   ```make menuconfig```
 
 - Settings
-    - MCU Rasburry Pi RP2040
+    - MCU Raspberry Pi RP2040
     - bootloader offset 16Kib Bootloader
     - Com interface CAN bus
     - CAN RX GPIO 1
