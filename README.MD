@@ -1,6 +1,6 @@
 Steps to Flash SKR Pico RP2040 with Canboot.
 
-AT THIS TIME DO NOT FOLLOW THIS GUIDE UNTILL IT IS FINISHED
+**AT THIS TIME DO NOT FOLLOW THIS GUIDE UNTILL IT IS FINISHED**
 
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
