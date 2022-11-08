@@ -1,7 +1,8 @@
-# Steps to Flash SKR Pico RP2040 with Canboot.
-#### See below for USB to can bridge
+# Steps to Flash SKR Pico RP2040 with Canboot over CAN bus.
+#### See below for [USB to can bridge](https://github.com/Polar-Ted/RP2040Canboot_Install/edit/main/README.MD#canboot-for-skr-pico-in-usb-to-can-bridge-mode), A version for CanBoot on USB will be written soon. 
+  This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
 
-## Canboot for SKR Pico as a CAN device version
+## Canboot for SKR Pico as a CAN device
 
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
@@ -45,7 +46,7 @@
 
 - Reboot and continue to the next phase.. 
  
-### Flashing Klpper via canboot
+### Flashing Klpper via canboot over CAN
 
 - SSH into the Klipper host and CD to klipper
   - ``` cd ~/klipper/```
@@ -147,13 +148,13 @@
 
 - Reboot and your Pico should come bacup up in USB to canbridge mode.
 
-### Flashing after Canboot is installed ( this is only for KLipper in USB to can birde mode )
+### Flashing after Canboot is installed ( this is only for KLipper in USB to can birdge mode )
 
-- Run the canboot flash by UUID to enable CanBoot firmware. 
+- Run the canboot flash by UUID to enable CanBoot on USB firmware. 
   
   - ```python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u { your uuid}
 
-- Canboot will now appear as a USB device, Get the Canboot serial ID
+- Canboot throw an error but will now appear as a USB device, Get the Canboot serial ID
   
   - ```ls /dev/serial/by-id'''
 
