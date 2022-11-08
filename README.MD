@@ -5,6 +5,7 @@
 ## Install CanBoot if you haven't already
 - Run the following from ytour klipper host to copy the canboot github files
 ```
+cd ~/
 git clone https://github.com/Arksine/CanBoot
 ```
 
