@@ -46,7 +46,10 @@ is_system_service: False
     - CAN RX GPIO 1
     - CAN Tx GPIO 0
     - CAN bus speed 500000 <-- Chose your own adventure ( 250000,500000,1000000 )
- - Run make
+
+![Canboot on CAN](/img/skr_pico_canboot_can.png)    
+
+- Run make
   ```
   make
   ``` 
@@ -94,7 +97,10 @@ is_system_service: False
     - CAN RX GPIO 1
     - CAN Tx GPIO 0
     - CAN bus speed 500000 <-- Chose your own adventure ( 250000,500000,1000000 )
- - Run make
+
+![KLipper on CAN with canbooot offset](/img/skr_pico_klipper_can.png)
+
+- Run make
   ```
   make
   ``` 
@@ -135,6 +141,8 @@ is_system_service: False
     - Build CanBoot deployment 16Kib Bootloader
     - Com interface USB
 
+![Canboot in USB mode](/img/skr_pico_canboot_usb.png)
+
 - Run make
   ```
   make
@@ -147,7 +155,8 @@ is_system_service: False
   ```
 
 - Copy Canboot.uf2 to the Pico
-  ```sudo cp ~/CanBoot/out/canboot.uf2 /mnt
+  ```
+  sudo cp ~/CanBoot/out/canboot.uf2 /mnt
   ``` 
 
 - This will copy the firmware image we compiled earlier onto the SKR-Pico's storage and it will be flashed automatically.
@@ -179,10 +188,13 @@ is_system_service: False
 - Settings
     - MCU Raspberry Pi RP2040
     - bootloader offset 16Kib Bootloader
-    - Com interface CAN bus
+    - Com interface USB to CAN bus
     - CAN RX GPIO 1
     - CAN Tx GPIO 0
     - CAN bus speed 500000 <-- Chose your own adventure ( 250000,500000,1000000 )
+
+![Klipper USB to CAN](/img/skr_pico_klipper_usbtocan.png)    
+  
  - Run make
   ```
   make
