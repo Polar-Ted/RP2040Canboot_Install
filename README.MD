@@ -15,7 +15,7 @@ Steps to Flash SKR Pico RP2040 with Canboot.
   -   ```make menuconfig```
 
 - Settings
-    - MCU Rasberru Pi RP2040
+    - MCU Rasburry Pi RP2040
     - Build CanBoot deployment 16Kib Bootloader
     - Com interface CAN bus
     - CAN RX GPIO 1
