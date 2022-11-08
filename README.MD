@@ -1,6 +1,7 @@
 Steps to Flash SKR Pico RP2040 with Canboot.
 
-**AT THIS TIME DO NOT FOLLOW THIS GUIDE UNTILL IT IS FINISHED**
+# Canboot for SKR Pico as a CAN device version
+### See below for USB to can bridge
 
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
@@ -44,7 +45,38 @@ Steps to Flash SKR Pico RP2040 with Canboot.
 
 - Reboot and continue to the next phase.. Flashing Klipper
 
-Links:
+- SSH into the Klipper host and CD to klipper
+  - ``` cd ~/klipper/```
+
+- Run Make Clean
+
+  -   ```make clean```
+- Run Make Menuconfig
+  
+  -   ```make menuconfig```
+
+- Settings
+    - MCU Rasburry Pi RP2040
+    - bootloader offset 16Kib Bootloader
+    - Com interface CAN bus
+    - CAN RX GPIO 1
+    - CAN Tx GPIO 0
+    - CAN bus speed 500000 <-- Chose your own adventure ( 250000,500000,1000000 )
+ - Run make
+
+  - ```make``` 
+
+- Get your UUID
+  - ```python3 ~/CanBoot/scripts/flash_can.py -q```
+
+ - Flash the klipper.bin file to the SKR Pico
+  - ``` python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u {your uuid}```
+  
+  # Canboot for SKR Pico in USB to can bridge mode 
+  
+  comming soon
+  
+# Links:
 
 [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md)
 
