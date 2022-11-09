@@ -61,7 +61,7 @@ is_system_service: False
   ```
   make
   ``` 
-
+- Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
 - Mount the Pico file system
   ```
@@ -79,7 +79,7 @@ is_system_service: False
 
 - When the /mnt unmounts remove the boot jumper. 
 
-- Reboot and continue to the next phase.. 
+- Remove the USB cable, Reboot and continue to the next phase.. 
  
 ### Flashing Klpper via canboot over CAN
 
@@ -112,6 +112,7 @@ is_system_service: False
   ```
   make
   ``` 
+- Connect the SKR Pico to the CAN bus. 
 
 - Get your UUID
   ```
@@ -155,7 +156,7 @@ is_system_service: False
   ```
   make
   ``` 
-
+- Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
 - Mount the Pico file system
   ```
@@ -272,7 +273,7 @@ is_system_service: False
   ```
   make
   ``` 
-
+- Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
 - Mount the Pico file system
   ```
@@ -376,7 +377,7 @@ is_system_service: False
   ```
   make
   ``` 
-
+- Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
 - Mount the Pico file system
   ```
@@ -427,6 +428,7 @@ is_system_service: False
   make
   ``` 
 
+ - Connect the SKR Pico UART pins to the klipper host.
  - Flash the klipper.bin file to the SKR Pico
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d  /dev/ttyAMA0
