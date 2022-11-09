@@ -308,7 +308,7 @@ is_system_service: False
     - Com interface US
 
 
-![Klipper USB to CAN](/img/skr_pico_klipper_canbus_usb.png)    
+![Klipper USB to CAN](/img/SKR_Pico_Klipper_canbus_usb.png)    
   
  - Run make
   ```
