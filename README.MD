@@ -311,7 +311,7 @@ is_system_service: False
 - Settings
     - MCU Raspberry Pi RP2040
     - bootloader offset 16Kib Bootloader
-    - Com interface US
+    - Com interface USB
 
 
 ![Klipper USB to CAN](/img/SKR_Pico_Klipper_canbus_usb.png)    
