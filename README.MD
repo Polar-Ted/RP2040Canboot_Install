@@ -436,7 +436,7 @@ is_system_service: False
 
 - Reboot and your Pico should come back up in Serial UART mode.
 
-### Flashing again after Canboot and klipper have been installed
+### Flashing again after Canboot and klipper has been installed
 
 - Run the canboot flash. 
   ```
