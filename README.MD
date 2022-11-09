@@ -5,6 +5,9 @@
 
 #### [Canbus over USB](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-usb-mode)
 
+#### [Canbus over Serial UART](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-uart-mode)
+
+
   This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
   
 ## Install CanBoot if you haven't already
@@ -330,13 +333,112 @@ is_system_service: False
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/{your serial id}
   ```
 
-- Reboot and your Pico should come bacup up in USB to canbridge mode.
+- Reboot and your Pico should come back up in USB to canbridge mode.
 
 ### Flashing again after Canboot and klipper have been installed
 
-- Run the canboot flash with yout serial ID USB firmware. 
+- Run the canboot flash with your serial ID to burn the firmware. 
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/{your serial id}
+  ```
+ 
+  - Reboot 
+
+## Canboot for SKR Pico in UART mode 
+  
+- Update to the latest Canboot and Klipper codabase as of 11-8-2022
+  - Canboot v0.0.1-20-g600967e or newer
+  - Klipper v0.10.0-623-g5b1a6676 or newer
+- SSH to  your Klipper host
+- CD to Canboot
+  ```
+  cd ~/CanBoot/
+  ```
+  
+- Run Make Clean
+  ```
+  make clean
+  ```
+
+- Run Make Menuconfig
+  ```
+  make menuconfig
+  ```
+
+- Settings
+    - MCU Raspberry Pi RP2040
+    - Build CanBoot deployment 16Kib Bootloader
+    - Com interface Serial on UART
+
+![Canboot in UART mode](/img/skr_pico_canboot_uart.png)
+
+- Run make
+  ```
+  make
+  ``` 
+
+- Install boot jumper on the SKR Pico and press the reset button
+- Mount the Pico file system
+  ```
+  sudo mount /dev/sda1 /mnt
+  ```
+
+- Copy Canboot.uf2 to the Pico
+  ```
+  sudo cp ~/CanBoot/out/canboot.uf2 /mnt
+  ``` 
+
+- This will copy the firmware image we compiled earlier onto the SKR-Pico's storage and it will be flashed automatically.
+
+  - This take a minute or so.
+
+- When the /mnt unmounts remove the boot jumper. 
+
+- Reboot and continue to the next phase.. 
+ 
+### Flashing Klpper via UART the first time
+
+- SSH into the Klipper host and CD to klipper
+  ```
+  cd ~/klipper/
+  ```
+
+- Run Make Clean
+  ```
+  make clean
+  ```
+
+- Run Make Menuconfig
+  
+  ```
+  make menuconfig
+  ```
+
+- Settings
+    - MCU Raspberry Pi RP2040
+    - bootloader offset 16Kib Bootloader
+    - Com interface Serial on UART
+
+
+![Klipper UART](/img/skr_pico_klipper_canbus_uart.png)    
+  
+ - Run make
+  ```
+  make
+  ``` 
+
+ - Flash the klipper.bin file to the SKR Pico
+  ```
+  python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d  /dev/ttyAMA0
+  ```
+
+- Reboot and your Pico should come back up in Serial UART mode.
+
+### Flashing again after Canboot and klipper have been installed
+
+- Run the canboot flash. 
+  ```
+  python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/ttyAMA0
   ```
  
   - Reboot 
