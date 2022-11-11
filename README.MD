@@ -7,7 +7,6 @@
 
 #### [Canbus over Serial UART](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-uart-mode)
 
-### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the the Pico reset button twice to have it enter the CanBoot bootloader.   
 
   This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
   
@@ -339,12 +338,21 @@ is_system_service: False
 
 ### Flashing again after Canboot and klipper have been installed
 
-- Press the reset button twice to have the Pico enter the Canboot Firmware. 
-
+- Run the Klipper Flash_USB script to load the CanBoot bootloader. This flash will fail but it gets the SKR Pico into the loader. 
+  ```
+  python3 ~/klipper/scripts/flash_usb.py -t rp2040 -d /dev/serial/by-id/{your serial id}
+  ```
+  
 - Run ls /dev/serial/by-id and verify the Canboot bootloader is running. 
   ```
   ls /dev/serial/by-id
   ```
+ - Note the new CanBus ID lsited. It should appear something like this example. 
+   ```
+   usb-CanBoot_rp2040_45503571279020E8-if00
+   ```
+ 
+ - Run the CanBoot flash_can script to flash the new klipper build. 
   
 - Run the canboot flash with your serial ID to burn the firmware. 
   ```
@@ -354,7 +362,7 @@ is_system_service: False
   - Reboot 
 
 ## Canboot for SKR Pico in UART mode 
-### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the Pico reset button twice to have it enter the CanBoot bootloader.      
+
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
   - Klipper v0.10.0-623-g5b1a6676 or newer
@@ -446,8 +454,10 @@ is_system_service: False
 
 ### Flashing again after Canboot and klipper has been installed
 
-- Press the reset button twice to have the Pico enter the Canboot Firmware. 
-- Run the canboot flash. 
+ - Press the SKR Pico reset button twice to enter the Canoot bootloader. 
+ 
+ - Run the CanBoot flash_can script to flash the new klipper build. 
+
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/ttyAMA0
   ```
