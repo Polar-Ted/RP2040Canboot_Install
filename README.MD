@@ -8,6 +8,7 @@
 #### [Canbus over Serial UART](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-uart-mode)
 
 
+
   This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
   
 ## Install CanBoot if you haven't already
@@ -242,7 +243,7 @@ is_system_service: False
   - Reboot 
   
 ## Canboot for SKR Pico in USB mode 
-  
+### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the rest the Pico twice to have it enter the CanBoot bootloader.    
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
   - Klipper v0.10.0-623-g5b1a6676 or newer
@@ -338,6 +339,13 @@ is_system_service: False
 
 ### Flashing again after Canboot and klipper have been installed
 
+- Press the reset button twice to have the Pico enter the Canboot Firmware. 
+
+- Run ls /dev/serial/by-id and verify the Canboot bootloader is running. 
+  ```
+  ls /dev/serial/by-id
+  ```
+  
 - Run the canboot flash with your serial ID to burn the firmware. 
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/{your serial id}
@@ -346,7 +354,7 @@ is_system_service: False
   - Reboot 
 
 ## Canboot for SKR Pico in UART mode 
-  
+### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the rest the Pico twice to have it enter the CanBoot bootloader.      
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
   - Klipper v0.10.0-623-g5b1a6676 or newer
@@ -438,6 +446,7 @@ is_system_service: False
 
 ### Flashing again after Canboot and klipper has been installed
 
+- Press the reset button twice to have the Pico enter the Canboot Firmware. 
 - Run the canboot flash. 
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/ttyAMA0
