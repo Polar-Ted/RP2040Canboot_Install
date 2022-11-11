@@ -352,9 +352,8 @@ is_system_service: False
    usb-CanBoot_rp2040_45503571279020E8-if00
    ```
  
- - Run the CanBoot flash_can script to flash the new klipper build. 
+ - Run the CanBoot flash_can script with your serial ID to flash your new klipper firmware. 
   
-- Run the canboot flash with your serial ID to burn the firmware. 
   ```
   python3 ~/CanBoot/scripts/flash_can.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/{your serial id}
   ```
