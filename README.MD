@@ -7,7 +7,7 @@
 
 #### [Canbus over Serial UART](https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-uart-mode)
 
-
+### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the rest the Pico twice to have it enter the CanBoot bootloader.   
 
   This guide assumes you alreay have a SKR Pico working on CAN bus. See the [Rootiest SKR Pico Canbus guide](https://github.com/rootiest/zippy-klipper_config/blob/master/guides/Guide-pico_can.md) for more information. 
   
