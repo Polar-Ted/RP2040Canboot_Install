@@ -242,7 +242,7 @@ is_system_service: False
   - Reboot 
   
 ## Canboot for SKR Pico in USB mode 
-### Note: I have found that Klipper firmware for USB is not cabable of calling the CanBoot bootloader. To re-flash you will need to quickly press the Pico reset button twice to have it enter the CanBoot bootloader.    
+ 
 - Update to the latest Canboot and Klipper codabase as of 11-8-2022
   - Canboot v0.0.1-20-g600967e or newer
   - Klipper v0.10.0-623-g5b1a6676 or newer
@@ -340,7 +340,7 @@ is_system_service: False
 
 - Run the Klipper Flash_USB script to load the CanBoot bootloader. This flash will fail but it gets the SKR Pico into the loader. 
   ```
-  python3 ~/klipper/scripts/flash_usb.py -t rp2040 -d /dev/serial/by-id/{your serial id}
+  python3 ~/klipper/scripts/flash_usb.py -t rp2040 -d /dev/serial/by-id/{your serial id} ~/klipper/out/klipper.bin
   ```
   
 - Run ls /dev/serial/by-id and verify the Canboot bootloader is running. 
