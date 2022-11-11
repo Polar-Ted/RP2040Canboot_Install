@@ -228,10 +228,10 @@ is_system_service: False
   python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u { your uuid}
   ```
 
-- Canboot throw an error but will now appear as a USB device, Get the Canboot serial ID
+- Canboot will throw an error but will now appear as a USB device, Get the Canboot serial ID
   ```
   ls /dev/serial/by-id
-  '''
+  ```
 
  - Build klipper as before ( see above ) 
  - Flash your new klipper bin via Canbus by serial ID
