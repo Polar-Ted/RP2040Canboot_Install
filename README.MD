@@ -300,7 +300,7 @@ is_system_service: False
   
  - Run make
   ```
-  make
+  make -j 4
   ``` 
 
 - Get your serial ID
@@ -369,7 +369,7 @@ is_system_service: False
 
 - Run make
   ```
-  make
+  make -j 4
   ``` 
 - Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
@@ -419,7 +419,7 @@ is_system_service: False
   
  - Run make
   ```
-  make
+  make -j 4
   ``` 
 
  - Connect the SKR Pico UART pins to the klipper host.
