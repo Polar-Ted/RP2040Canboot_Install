@@ -59,25 +59,17 @@ is_system_service: False
 
 - Run make
   ```
-  make
+  make -j 4
   ``` 
 - Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
-- Mount the Pico file system
+- Flash the Pico firmware
   ```
-  sudo mount /dev/sda1 /mnt
+  sudo make flash FLASH_DEVICE=2e8a:0003
   ```
 
-- Copy Canboot.uf2 to the Pico
-  ```
-  sudo cp ~/CanBoot/out/canboot.uf2 /mnt
-  ``` 
-
-- This will copy the firmware image we compiled earlier onto the SKR-Pico's storage and it will be flashed automatically.
-
-  - This take a minute or so.
-
-- When the /mnt unmounts remove the boot jumper. 
+- This will flash the firmware image we compiled earlier onto the SKR-Pico.
+ 
 
 - Remove the USB cable, Reboot and continue to the next phase.. 
  
@@ -110,7 +102,7 @@ is_system_service: False
 
 - Run make
   ```
-  make
+  make -j 4
   ``` 
 - Connect the SKR Pico to the CAN bus. 
 
@@ -154,21 +146,16 @@ is_system_service: False
 
 - Run make
   ```
-  make
+  make -j 4
   ``` 
 - Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
-- Mount the Pico file system
+- Flash the SKR Pico firmware
   ```
-  sudo mount /dev/sda1 /mnt
+  sudo make flash FLASH_DEVICE=2e8a:0003
   ```
 
-- Copy Canboot.uf2 to the Pico
-  ```
-  sudo cp ~/CanBoot/out/canboot.uf2 /mnt
-  ``` 
-
-- This will copy the firmware image we compiled earlier onto the SKR-Pico's storage and it will be flashed automatically.
+- This will flash the firmware image we compiled earlier onto the SKR-Pico.
 
   - This take a minute or so.
 
@@ -206,7 +193,7 @@ is_system_service: False
   
  - Run make
   ```
-  make
+  make -j 4
   ``` 
 
 - Get your serial ID
@@ -271,25 +258,17 @@ is_system_service: False
 
 - Run make
   ```
-  make
+  make -j 4
   ``` 
 - Connect the Pico by USB to the Klipper Host
 - Install boot jumper on the SKR Pico and press the reset button
-- Mount the Pico file system
+- Flash the Pico firmware
   ```
-  sudo mount /dev/sda1 /mnt
+  sudo make flash FLASH_DEVICE=2e8a:0003
   ```
+- This will flash the firmware image we compiled earlier onto the SKR-Pico.
 
-- Copy Canboot.uf2 to the Pico
-  ```
-  sudo cp ~/CanBoot/out/canboot.uf2 /mnt
-  ``` 
-
-- This will copy the firmware image we compiled earlier onto the SKR-Pico's storage and it will be flashed automatically.
-
-  - This take a minute or so.
-
-- When the /mnt unmounts remove the boot jumper. 
+- Remove the boot jumper. 
 
 - Reboot and continue to the next phase.. 
  
